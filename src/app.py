@@ -76,7 +76,7 @@ activities = {
         "participants": ["harper@mergington.edu", "liam@mergington.edu"]
     }
 }
-
+ 
 
 @app.get("/")
 def root():
