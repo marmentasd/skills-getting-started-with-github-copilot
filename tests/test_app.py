@@ -43,6 +43,15 @@ def test_unknown_activity_returns_404():
     assert response.json()["detail"] == "Activity not found"
 
 
+def test_list_activities_returns_activity_data():
+    response = client.get("/activities")
+
+    assert response.status_code == 200
+    payload = response.json()
+    assert "Chess Club" in payload
+    assert "participants" in payload["Chess Club"]
+
+
 def test_unregister_participant_removes_email_from_activity():
     activity_name = "Chess Club"
     email = "new.student@mergington.edu"
